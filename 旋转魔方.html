@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>旋转魔方</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+	*{margin:0; padding:0; list-style: none;}
+	body{
+		background: url(img/bg.jpg) 0 0 no-repeat;
+		background-size: 100%;
+		-webkit-perspective: 1000px;
+	}
+	.box{
+		width:200px;
+		height:200px;
+		margin:200px auto 0;
+		position:relative;
+		/*透视声明只会应用到其第一个子元素上,
+		为了延续父元素的透视，
+		我们给子元素设定preserve-3d*/
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: rotateX(30deg);
+		-webkit-animation: rotate 10s linear infinite;
+	}
+	ul{
+		position:absolute;
+		top:50px;
+		left:50px;
+		width:100px;
+		height:100px;
+		-webkit-transform-style: preserve-3d;
+	}
+	ul li{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100px;
+		height:100px;
+	}
+	ul li:nth-child(1){
+		background:url("img/01.png");
+		-webkit-transform:rotateY(0deg) translateZ(50px);
+	}
+	ul li:nth-child(2){
+		background:url("img/02.png");
+		-webkit-transform:rotateY(90deg) translateZ(50px);
+	}
+	ul li:nth-child(3){
+		background:url("img/03.png");
+		-webkit-transform:rotateY(180deg) translateZ(50px);
+	}
+	ul li:nth-child(4){
+		background:url("img/04.png");
+		-webkit-transform:rotateY(270deg) translateZ(50px);
+	}
+	ul li:nth-child(5){
+		background:url("img/05.png");
+		-webkit-transform:rotateX(90deg) translateZ(50px);
+	}
+	ul li:nth-child(6){
+		background:url("img/06.png");
+		-webkit-transform:rotateX(-90deg) translateZ(50px);
+	}
+	@-webkit-keyframes rotate {
+		0%{
+			-webkit-transform:rotateX(30deg) rotateY(0deg);
+		}
+		50%{
+			-webkit-transform:rotateX(-30deg) rotateY(180deg);
+		}
+		100%{
+			-webkit-transform:rotateX(30deg) rotateY(360deg);
+		}
+	}
+	ol{
+		width:200px;
+		height:200px;
+		position:absolute;
+		top:0;
+		left:0;
+		-webkit-transform-style: preserve-3d;
+	}
+	ol li{
+		width:200px;
+		height:200px;
+		position:absolute;
+		top:0;
+		left:0;
+		background:rgba(255,255,255,0.3);
+		-webkit-transition: all 1s linear;
+	}
+	ol li:nth-child(1){
+		-webkit-transform: rotateY(0deg) translateZ(100px);
+	}
+	ol li:nth-child(2){
+		-webkit-transform: rotateY(90deg) translateZ(100px);
+	}
+	ol li:nth-child(3){
+		-webkit-transform: rotateY(180deg) translateZ(100px);
+	}
+	ol li:nth-child(4){
+		-webkit-transform: rotateY(270deg) translateZ(100px);
+	}
+	ol li:nth-child(5){
+		-webkit-transform: rotateX(90deg) translateZ(100px);
+	}
+	ol li:nth-child(6){
+		-webkit-transform: rotateX(-90deg) translateZ(100px);
+	}
+	.box:hover ol li:nth-child(1){
+		-webkit-transform: rotateY(0deg) translateZ(260px);
+	}
+	.box:hover ol li:nth-child(2){
+		-webkit-transform: rotateY(90deg) translateZ(260px);
+	}
+	.box:hover ol li:nth-child(3){
+		-webkit-transform: rotateY(180deg) translateZ(260px);
+	}
+	.box:hover ol li:nth-child(4){
+		-webkit-transform: rotateY(270deg) translateZ(260px);
+	}
+	.box:hover ol li:nth-child(5){
+		-webkit-transform: rotateX(90deg) translateZ(260px);
+	}
+	.box:hover ol li:nth-child(6){
+		-webkit-transform: rotateX(-90deg) translateZ(260px);
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+</body>
+</html>
